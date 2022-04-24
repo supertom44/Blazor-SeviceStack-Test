@@ -16,7 +16,7 @@ namespace test
                 SqliteDialect.Provider)))
             .ConfigureAppHost(appHost =>
             {
-                // Create non-existing Table and add Seed Data Example
+                // Create non-existing Table and add Seed Data Example.
                 using var db = appHost.Resolve<IDbConnectionFactory>().Open();                
                 if (db.CreateTableIfNotExists<Booking>())
                 {
