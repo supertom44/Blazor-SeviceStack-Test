@@ -1,5 +1,6 @@
 using Funq;
 using ServiceStack;
+using ServiceStack.Logging;
 using test.ServiceInterface;
 
 [assembly: HostingStartup(typeof(test.AppHost))]
@@ -14,6 +15,8 @@ public class AppHost : AppHostBase, IHostingStartup
     {
         SetConfig(new HostConfig {
         });
+        
+        LogManager.LogFactory = new ConsoleLogFactory(debugEnabled:true);
     }
 
     public void Configure(IWebHostBuilder builder) => builder
